@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<div id="header"><h1>SPACE INVADERS</h1>
+<h4>LMOUSE = SHOOT, Q = QUIT, R = RESTART, ARROW KEYS TO MOVE, Z = INC DIFF, X = DEC DIFF</h4></div>
+<div id="bullets"><h1></h1></div>
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec4 position;
+attribute vec4 colour;
+
+varying vec4 vColour;
+void
+main()
+{
+    vColour = colour;
+    gl_Position = position;
+}
+</script>
+
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+varying vec4 vColour;
+
+void
+main()
+{
+    //gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+    gl_FragColor = vColour;
+}
+</script>
+
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="a1.js"></script>
+
+<body>
+<canvas id="gl-canvas" width="900" height="490" style="border:2px solid #0000ff;">>
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>
